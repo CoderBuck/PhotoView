@@ -15,6 +15,12 @@
  */
 package com.github.chrisbanes.photoview;
 
+
+/**
+ * 手势监听接口
+ * 这里支持的 拖动，fling，缩放
+ * 如果需要支持 旋转 还可以在这里增加旋转的接口
+ */
 interface OnGestureListener {
 
     void onDrag(float dx, float dy);
