@@ -24,6 +24,7 @@ class Compat {
 
     private static final int SIXTY_FPS_INTERVAL = 1000 / 60;
 
+    // 将任务在下一个帧动画运行，防止卡顿
     public static void postOnAnimation(View view, Runnable runnable) {
         if (VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN) {
             postOnAnimationJellyBean(view, runnable);
