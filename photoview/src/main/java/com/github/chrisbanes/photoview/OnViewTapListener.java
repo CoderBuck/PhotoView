@@ -4,7 +4,7 @@ import android.view.View;
 
 public interface OnViewTapListener {
 
-    /**
+    /** view 的点击事件
      * A callback to receive where the user taps on a ImageView. You will receive a callback if
      * the user taps anywhere on the view, tapping on 'whitespace' will not be ignored.
      *
