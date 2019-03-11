@@ -5,6 +5,7 @@ import android.widget.ImageView;
 
 class Util {
 
+    // 检查缩放等级大小合法
     static void checkZoomLevels(float minZoom, float midZoom,
                                 float maxZoom) {
         if (minZoom >= midZoom) {
@@ -16,10 +17,12 @@ class Util {
         }
     }
 
+    // 检查ImageView是否包含图片
     static boolean hasDrawable(ImageView imageView) {
         return imageView.getDrawable() != null;
     }
 
+    // 是否是支持的缩放类型
     static boolean isSupportedScaleType(final ImageView.ScaleType scaleType) {
         if (scaleType == null) {
             return false;
@@ -31,6 +34,7 @@ class Util {
         return true;
     }
 
+    // 获取触摸点索引
     static int getPointerIndex(int action) {
         return (action & MotionEvent.ACTION_POINTER_INDEX_MASK) >> MotionEvent.ACTION_POINTER_INDEX_SHIFT;
     }
