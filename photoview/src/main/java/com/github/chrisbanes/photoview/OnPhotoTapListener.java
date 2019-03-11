@@ -3,6 +3,7 @@ package com.github.chrisbanes.photoview;
 import android.widget.ImageView;
 
 /**
+ * 点击图片内部区域回调
  * A callback to be invoked when the Photo is tapped with a single
  * tap.
  */
