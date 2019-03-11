@@ -3,6 +3,7 @@ package com.github.chrisbanes.photoview;
 import android.graphics.RectF;
 
 /**
+ * 图片矩阵变化的时候调用
  * Interface definition for a callback to be invoked when the internal Matrix has changed for
  * this View.
  */
