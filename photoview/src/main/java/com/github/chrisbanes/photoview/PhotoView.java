@@ -50,8 +50,10 @@ public class PhotoView extends AppCompatImageView {
 
     private void init() {
         attacher = new PhotoViewAttacher(this);
+        /* 设为矩阵类型 */
         //We always pose as a Matrix scale type, though we can change to another scale type
         //via the attacher
+        /* 翻译过来是这样的，永远都给imageview设置为矩阵类型，这样才方便缩放等操作，然后呢，我们自己又定义了一套 ScaleType ,这个ScaleType不是给ImageView用的，而是自己用的，给attacher用*/
         super.setScaleType(ScaleType.MATRIX);
         //apply the previously applied scale type
         if (pendingScaleType != null) {
@@ -125,6 +127,7 @@ public class PhotoView extends AppCompatImageView {
         }
     }
 
+    /*判断 view 是否改变 */
     @Override
     protected boolean setFrame(int l, int t, int r, int b) {
         boolean changed = super.setFrame(l, t, r, b);
