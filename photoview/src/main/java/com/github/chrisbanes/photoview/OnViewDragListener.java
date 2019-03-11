@@ -1,6 +1,7 @@
 package com.github.chrisbanes.photoview;
 
 /**
+ * 拖拽
  * Interface definition for a callback to be invoked when the photo is experiencing a drag event
  */
 public interface OnViewDragListener {
