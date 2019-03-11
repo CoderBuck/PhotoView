@@ -2,6 +2,7 @@ package com.github.chrisbanes.photoview;
 
 
 /**
+ * 缩放变化回调
  * Interface definition for callback to be invoked when attached ImageView scale changes
  */
 public interface OnScaleChangedListener {
