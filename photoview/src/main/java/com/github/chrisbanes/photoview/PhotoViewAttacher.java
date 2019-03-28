@@ -39,11 +39,14 @@ import android.widget.OverScroller;
 public class PhotoViewAttacher implements View.OnTouchListener,
     View.OnLayoutChangeListener {
 
+    /* === 定义常量 ===*/
+    //大中小缩放，缩放动画时长
     private static float DEFAULT_MAX_SCALE = 3.0f;
     private static float DEFAULT_MID_SCALE = 1.75f;
     private static float DEFAULT_MIN_SCALE = 1.0f;
     private static int DEFAULT_ZOOM_DURATION = 200;
 
+    //边界
     private static final int HORIZONTAL_EDGE_NONE = -1;
     private static final int HORIZONTAL_EDGE_LEFT = 0;
     private static final int HORIZONTAL_EDGE_RIGHT = 1;
@@ -54,11 +57,14 @@ public class PhotoViewAttacher implements View.OnTouchListener,
     private static final int VERTICAL_EDGE_BOTH = 2;
     private static int SINGLE_TOUCH = 1;
 
+    /* === 定义变量 ===*/
+    //加速减速插值器
     private Interpolator mInterpolator = new AccelerateDecelerateInterpolator();
     private int mZoomDuration = DEFAULT_ZOOM_DURATION;
     private float mMinScale = DEFAULT_MIN_SCALE;
     private float mMidScale = DEFAULT_MID_SCALE;
     private float mMaxScale = DEFAULT_MAX_SCALE;
+
 
     private boolean mAllowParentInterceptOnEdge = true;
     private boolean mBlockParentIntercept = false;
@@ -70,10 +76,10 @@ public class PhotoViewAttacher implements View.OnTouchListener,
     private CustomGestureDetector mScaleDragDetector;
 
     // These are set so we don't keep allocating them on the heap
-    private final Matrix mBaseMatrix = new Matrix();
-    private final Matrix mDrawMatrix = new Matrix();
-    private final Matrix mSuppMatrix = new Matrix();
-    private final RectF mDisplayRect = new RectF();
+    private final Matrix mBaseMatrix = new Matrix(); //原始的矩阵
+    private final Matrix mDrawMatrix = new Matrix(); //绘制的最终矩阵
+    private final Matrix mSuppMatrix = new Matrix(); //变化的值
+    private final RectF mDisplayRect = new RectF();  //显示矩形位置
     private final float[] mMatrixValues = new float[9];
 
     // Listeners
