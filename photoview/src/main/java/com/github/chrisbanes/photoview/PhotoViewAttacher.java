@@ -104,6 +104,7 @@ public class PhotoViewAttacher implements View.OnTouchListener,
     private OnGestureListener onGestureListener = new OnGestureListener() {
         @Override
         public void onDrag(float dx, float dy) {
+            //如果在缩放中，不允许拖动
             if (mScaleDragDetector.isScaling()) {
                 return; // Do not drag if we are already scaling
             }
@@ -162,8 +163,11 @@ public class PhotoViewAttacher implements View.OnTouchListener,
 
     public PhotoViewAttacher(ImageView imageView) {
         mImageView = imageView;
+        //触摸，手势分发
         imageView.setOnTouchListener(this);
+        //基本矩阵初始化
         imageView.addOnLayoutChangeListener(this);
+        //解决在布局文件中不能预览的问题
         if (imageView.isInEditMode()) {
             return;
         }
@@ -760,6 +764,8 @@ public class PhotoViewAttacher implements View.OnTouchListener,
         }
     }
 
+    // scroller 只是记录了动画的开始和结束位置，也可以获取下一个位置，动画还是要通过view去更新
+    // 说它是一个ValueAnimator 也差不多
     private class FlingRunnable implements Runnable {
 
         private final OverScroller mScroller;
